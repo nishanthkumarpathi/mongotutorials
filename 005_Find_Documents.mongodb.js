@@ -4,6 +4,9 @@ const collection = "products";
 // Creates a database
 use(database);
 
+// To select all data from a collection in MongoDB,
+db.products.find();
+
 // Finds all instock items
 db.products.find({ inStock: true });
 

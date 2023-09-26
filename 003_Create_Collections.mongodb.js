@@ -22,6 +22,7 @@ const productData = {
   colors: ["Black", "Silver", "Gold"],
 };
 
+
 // Inserts seed data
 db.products.insertOne(productData);
 
@@ -81,7 +82,15 @@ const productsData = [
     price: 349.0,
     category: "Electronics",
     description: "A high-resolution digital camera for capturing memories.",
-    inStock: true,
+    availability: {
+      inStock: true,
+      stockCount: 100, // Example stock count
+      warehouseLocation: "New York", // Example location
+    },
+    specs: {
+      resolution: "20MP", // Example resolution
+      zoom: "5x Optical Zoom", // Example zoom capability
+    },
     colors: ["Black"],
   },
 ];
