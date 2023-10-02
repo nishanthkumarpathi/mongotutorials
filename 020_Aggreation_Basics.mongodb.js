@@ -26,12 +26,12 @@ use(database);
 
 // Logs the total number of documents in the products collection
 
-console.log(
-  `${database}.${collection} has ${db.products.countDocuments()} documents.`
-);
+// console.log(
+//   `${database}.${collection} has ${db.products.countDocuments()} documents.`
+// );
 
 // Finds all instock items
-db.products.find({ inStock: true });
+// db.products.find({ inStock: true });
 
 // $match
 // The $match stage filters for documents that match specified conditions
@@ -43,13 +43,13 @@ db.products.find({ inStock: true });
 }
 */
 
-db.products.aggregate([
-  {
-    $match: {
-      inStock: true,
-    },
-  },
-]);
+// db.products.aggregate([
+//   {
+//     $match: {
+//       inStock: true,
+//     },
+//   },
+// ]);
 
 // $group
 // The $group stage groups documents by a group key.
@@ -65,7 +65,24 @@ db.products.aggregate([
 */
 
 // Finds all in stock items and group them by category
-db.products.aggregate([
+// db.products.aggregate([
+//   {
+//     $match: {
+//       inStock: true,
+//     },
+//   },
+//   {
+//     $group: {
+//       _id: "$category",
+//       numProducts: {
+//         $sum: 1,
+//       },
+//     },
+//   },
+// ]);
+
+// ------CONVERTING INTO PIPELINE FORMAT------
+var pipeline = [
   {
     $match: {
       inStock: true,
@@ -79,4 +96,7 @@ db.products.aggregate([
       },
     },
   },
-]);
+];
+
+var results = db.products.aggregate(pipeline);
+results;
