@@ -83,3 +83,7 @@ db.orders.insertMany([
     value: NumberDecimal("429.65"),
   },
 ]);
+
+/*
+You want to generate a report to list all the orders made for each product in 2020. To achieve this, you need to take a shop's products collection and join each product record to all its orders stored in an orders collection. There is a one-to-many relationship between both collections, based on a match of two fields on each side. Rather than joining on a single field such as product_id (which doesn't exist in this dataset), you need to use two common fields to join (product_name and product_variation).
+*/

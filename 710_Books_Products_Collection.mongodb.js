@@ -69,3 +69,9 @@ db.orders.insertMany([
     value: NumberDecimal("429.65"),
   },
 ]);
+
+/*
+You want to generate a report to list all shop purchases for 2020, showing the product's name and category for each order, rather than the product's ID. To achieve this, you need to take the customer orders collection and join each order record to the corresponding product record in the products collection. There is a many-to-one relationship between both collections, resulting in a one-to-one join when matching an order to a product.
+
+The join will use a single field comparison between both sides, based on the product...
+*/
