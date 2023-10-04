@@ -2,6 +2,7 @@ const database = "studentsdb";
 const collection = "orders";
 
 use(database);
+db.orders.drop();
 
 db.createCollection(collection);
 
